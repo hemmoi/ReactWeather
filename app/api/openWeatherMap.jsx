@@ -8,7 +8,7 @@ module.exports = {
   getTemp: function (location) {
     var encodedLocation = encodeURIComponent(location);
     var requestUrl = `${OPEN_WEATHER_MAP_URL}&q=${encodedLocation}`;
-
+    debugger;
     return axios.get(requestUrl).then(
       function(res){
         debugger;
@@ -19,7 +19,9 @@ module.exports = {
         }
       },
       function(res){
-        throw new Error(res.data.message);
+        debugger;
+        throw new Error('Unable to fetch data for that location.');
+//        throw new Error(res);
       }
     );
   }
